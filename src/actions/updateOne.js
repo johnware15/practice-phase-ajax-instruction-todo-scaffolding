@@ -5,5 +5,5 @@ const sql = `UPDATE list
              WHERE id = $2`;
 
 export default function updateOne(item, id) {
-  return db.none(sql, [item, id]);
+  return db.none(sql, [item, parseInt(id)]);
 }
