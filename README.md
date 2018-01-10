@@ -19,7 +19,7 @@ Starter repo for instruction on 1-10-17 practice phase instruction
 - [ ] Each item should have a `Complete` button which marks the item as completed in the database and updates the DOM. (optional: completed items are seen with a strikethrough instead of removed. This would mean editing the `src/actions/getAll.js` file as well)
 - [ ] All actions should occur and be updates the page without a refresh.
 - [ ] There is a form to add a new list item, which upon submission adds the new item to the list using AJAX and updates the page without refresh.
-## Files to Edit
-`public/script.js`  
 ## Feeling overwhelmed or stuck?
 - If you go in to `views/partials/footer.ejs` you can see a comment where you can start off with all the jQuery DOM manipulation done so you can just focus on using AJAX. Cool, huh?
+## Files to Edit
+`public/script.js`  or `public/starterScipt.js`
