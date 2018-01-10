@@ -34,7 +34,7 @@ $(document).ready(function() {
       method: 'PUT',
       url: '/ajax/update/'+id,
       data: {item: updatedItem},
-      success: handleTodosUpdateResponse(id, upda)
+      success: handleTodosUpdateResponse(id, updatedItem)
     })
   })
 
@@ -48,13 +48,19 @@ function getAllTodos() {
   }).done(function(data) {
     for( let i=0; i<data.todos.length; i++){
       let itemId = data.todos[i].id
-      $('.list-group').append('<li class="list-group-item listitem-'+itemId+'">'
-      +'<button class="btn btn-primary edit-btn edit-'+itemId+'" data-itemid="'+itemId+'">Edit</button>'
-      +'<button class="btn btn-success save-btn save-'+itemId+'" data-itemid="'+itemId+'">Save</button>'
-      +'<span class="item-'+itemId+'">&nbsp;'+data.todos[i].item+'</span>'
-      +'<span class="form-inline edit-form input-'+itemId+'">&nbsp;<input class="form-control" value="'+data.todos[i].item+'"/></span>'
-      +'<button class="btn btn-danger delete-btn pull-right" data-itemid="'+itemId+'">Delete</button>'
-      +'</li>') }
+      $('.list-group').append('<tr class="list-group-item listitem-'+itemId+'">'
+        +'<td>'
+          +'<button class="btn btn-primary edit-btn edit-'+itemId+'" data-itemid="'+itemId+'">Edit</button>'
+          +'<button class="btn btn-success save-btn save-'+itemId+'" data-itemid="'+itemId+'">Save</button>'
+        +'</td>'
+        +'<td>'
+          +'<span class="item-'+itemId+' item">&nbsp;'+data.todos[i].item+'</span>'
+          +'<span class="form-inline edit-form input-'+itemId+'">&nbsp;<input class="form-control" value="'+data.todos[i].item+'"/></span>'
+        +'</td>'
+        +'<td>'
+          +'<button class="btn btn-danger delete-btn pull-right" data-itemid="'+itemId+'">Delete</button>'
+        +'</td>'
+      +'</tr>') }
   });
 };
 
@@ -64,7 +70,7 @@ function handleTodosDeleteResponse(itemId) {
 }
 
 function handleTodosUpdateResponse(id, updatedItem) {
-  $('.listitem-'+id).html('&nbsp;'+updatedItem)
+  $('.item-'+id).html('&nbsp;'+updatedItem)
 
   $('.item-'+id).show()
   $('.input-'+id).hide()
