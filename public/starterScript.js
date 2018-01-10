@@ -75,7 +75,7 @@ function getAllTodos() {
       let itemId = data.todos[i].id
       $('.list-group').append('<div style="background-color: ghostwhite;" class="list-group-item listitem-'+itemId+'">'
       +'<td>'
-      +'<button class="btn btn-primary edit-btn edit-'+itemId+'" data-itemid="'+itemId+'">Edit</button>'
+      +'<button class="btn btn-primary edit-btn edit-'+itemId+'" data-itemid="'+itemId+'">✍️</button>'
       +'<button class="btn btn-success save-btn save-'+itemId+'" data-itemid="'+itemId+'" style="display: none;">Save</button>'
       +'</td>'
       +'<td>'
