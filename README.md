@@ -17,8 +17,8 @@ Starter repo for instruction on 1-10-17 practice phase instruction
 ## Specs:
 - [ ] AJAX version adds feature of inline updating of todo list items.
 - [ ] Each item should have an `Edit` button that when clicked changes the item text to an auto-populated input field and the edit button changes to a `Save` button which when clicked updates the database with the updated values.
-- [ ] Each item should have a `Delete` button which deleted the item from the database and removes the row from the table.
-- [ ] Each item should have a `Complete` button which marks the item as completed and updates the DOM. (optional: completed items are seen with a strikethrough instead of removed. This would mean editing the `src/actions/getAll.js` file as well)
-- [ ] All actions should happen and be witnessed without a page refresh.
+- [ ] Each item should have a `Delete` button which deletes the item from the database and removes the row from the table.
+- [ ] Each item should have a `Complete` button which marks the item as completed in the database and updates the DOM. (optional: completed items are seen with a strikethrough instead of removed. This would mean editing the `src/actions/getAll.js` file as well)
+- [ ] All actions should occur and be witnessed without a page refresh.
 - [ ] There is a form to add a new list item, which upon submission adds the new item to the list using AJAX and witnessed without page refresh.
   
