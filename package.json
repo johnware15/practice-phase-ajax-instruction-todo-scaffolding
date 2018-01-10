@@ -1,0 +1,46 @@
+{
+  "name": "practice-phase-ajax-instruction",
+  "version": "1.0.0",
+  "description": "Starter repo for instruction on 1-10-17 practice phase instruction",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/bin/www --exec babel-node --presets es2015,stage-2",
+    "db:create": "createdb todos; psql todos < src/database/schema.sql; psql todos < src/database/seed.sql;",
+    "db:delete": "deletedb todos"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DianaVashti/practice-phase-ajax-instruction.git"
+  },
+  "author": "Di Vashti",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DianaVashti/practice-phase-ajax-instruction/issues"
+  },
+  "homepage": "https://github.com/DianaVashti/practice-phase-ajax-instruction#readme",
+  "dependencies": {
+    "ajv": "^6.0.0",
+    "bluebird": "^3.5.1",
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "debug": "^3.1.0",
+    "dotenv": "^4.0.0",
+    "ejs": "^2.5.7",
+    "eslint": "^4.15.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.5.1",
+    "express": "^4.16.2",
+    "morgan": "^1.9.0",
+    "pg-promise": "^7.2.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1",
+    "nodemon": "^1.12.1"
+  }
+}

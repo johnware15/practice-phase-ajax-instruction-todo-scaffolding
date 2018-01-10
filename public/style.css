@@ -1,0 +1,47 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: aqua;
+}
+
+a {
+  color: #00B7FF;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+.justify-center {
+  display: flex;
+  justify-content: center;
+}
+
+.edit-form {
+  display: none;
+}
+
+.save-btn {
+  display: none;
+}
+
+.item {
+  padding-left: 7px;
+  padding-right: 7px;
+}
+
+.table {
+  background-color: ghostwhite;
+}

@@ -1,0 +1,37 @@
+<% include ./partials/header %>
+
+  <div class="flex-column">
+    <h1>Todos</h1>
+    <table class="table">
+      <tr>
+        <th>Item</th>
+        <th style="padding-left: 7px; padding-right: 7px;"> Complete? </th>
+      </tr>
+      <% todos.forEach( todo => { %>
+      <tr>
+        <div>
+          <td>
+            <p class="flex-center item"><%= todo.item %></p>
+          </td>
+        </div>
+        <div>
+          <td>
+            <a class="flex-center complete" href='/complete/<%=todo.id%>'>🤘</a>
+          </td>
+        </div>
+      </tr>
+      <% }); %>
+    </table>
+    <h1>Add new:</h1>
+    <form action="/add" method="POST">
+      <input type="text" name="item"/>
+      <input type="submit"/>
+    </form>
+  </div>
+
+<!-- add ajax form to add list items -->
+  <ul class="list-group"> -->
+    <!-- stuff -->
+  </ul>
+
+<% include ./partials/footer %>
