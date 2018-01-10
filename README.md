@@ -21,4 +21,5 @@ Starter repo for instruction on 1-10-17 practice phase instruction
 - [ ] There is a form to add a new list item, which upon submission adds the new item to the list using AJAX and updates the page without refresh.
 ## Files to Edit
 `public/script.js`  
-## Feeling overwhelmed or stuck. 
+## Feeling overwhelmed or stuck?
+- If you go in to `views/partials/footer.ejs` you can see a comment where you can start off with all the jQuery DOM manipulation done so you can just focus on using AJAX. Cool, huh?
