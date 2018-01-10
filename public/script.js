@@ -8,9 +8,7 @@ $(document).ready(function() {
   $(document).on('click', '.delete-btn', function() {
     var id = $(this).data('itemid');
     $.ajax({
-      method: "POST",
-      url: '/ajax/delete/'+id,
-      success: handleTodosDeleteResponse(id)
+      // add code here
     });
   });
 
@@ -31,10 +29,7 @@ $(document).ready(function() {
     var updatedItem = $('.input-'+id+' input').val()
 
     $.ajax({
-      method: 'PUT',
-      url: '/ajax/update/'+id,
-      data: {item: updatedItem},
-      success: handleTodosUpdateResponse(id, updatedItem)
+      // add code here
     })
   })
 
@@ -43,8 +38,7 @@ $(document).ready(function() {
 function getAllTodos() {
   $('.list-group').html('')
   $.ajax({
-    method: 'GET',
-    url: '/ajax/get-all'
+    // add your code here
   }).done(function(data) {
     for( let i=0; i<data.todos.length; i++){
       let itemId = data.todos[i].id
