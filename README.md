@@ -12,7 +12,8 @@ Starter repo for instruction on 1-10-17 practice phase instruction
 ## Info:
 - If you go to `localhost:300` you will see a non-AJAX working simple todo list.
 - The AJAX version can be accessed at `localhost:3000/ajax`, though it is unfinished to begin.
-- `src/routes/ajax.js` shows the code for the AJAX api
+- `src/routes/ajax.js` shows the code for the AJAX api.
+- Bootstrap is linked in to the project already if you wish to use it.
 ## Specs:
 - [ ] AJAX version adds feature of inline updating of todo list items.
 - [ ] Each item should have an `Edit` button that when clicked changes the item text to an auto-populated input field and the edit button changes to a `Save` button which when clicked updates the database with the updated values.
