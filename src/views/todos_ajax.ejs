@@ -1,10 +1,23 @@
 <% include ./partials/header %>
   <!-- add ajax form to add list items -->
-  <h1>Todos:</h1>
-  <table class='table'>
-    <tr class="list-group">
-    <!-- stuff -->
-    </tr>
-  </table>
+  <div class="panel panel-default">
+    <div class="panel-heading">Todos:</div>
+      <table class='table'>
+        <tr class="list-group">
+        <!-- stuff -->
+        </tr>
+      </table>
+    </div>
+  </div>
+  </br>
+  <div>
+  <div class="panel panel-default">
+    <div class="panel-heading">Add:</div>
+      <form class="form-inline" style="background-color: ghostwhite;" id="new-todo-form">
+        <input type="text" style="width: 80%; margin: 12px;" class="form-control" name="item" placeholder="Whatcha gotta do?">
+        <input type="submit" class="btn btn-default add-btn" value="➕"/>
+      </form>
+    </div>
+  </div>
 
 <% include ./partials/footer %>

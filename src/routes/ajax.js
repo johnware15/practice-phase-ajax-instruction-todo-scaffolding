@@ -21,6 +21,15 @@ api.get('/get-all', (request, response, next) => {
     .catch(next);
 });
 
+api.post('/add/', (request, response, next) => {
+  const data = request.body
+  addOne(data.item)
+    .then(() => {
+      response.status(200);
+    })
+    .catch(next);
+})
+
 api.post('/delete/:id', (request, response, next) => {
   const id = request.params.id;
   deleteOne(id)
