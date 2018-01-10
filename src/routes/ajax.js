@@ -40,7 +40,7 @@ api.put('/update/:id', (request, response, next) => {
     .catch(next);
 })
 
-api.put('/complete/:id', (request, response, next) => {
+api.post('/complete/:id', (request, response, next) => {
   const id = request.params.id;
   completeOne(id)
     .then(() => {
