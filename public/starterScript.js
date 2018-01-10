@@ -9,7 +9,9 @@ $(document).ready(function() {
     var id = $(this).data('itemid');
     $.ajax({
       // add code here
-
+      method: "POST",
+      url: '/ajax/delete/'+id,
+      success: handleTodosDeleteResponse(id)
     });
   });
 
@@ -29,7 +31,9 @@ $(document).ready(function() {
     var id = $(this).data('itemid');
     $.ajax({
       // add code here
-
+      method: "POST",
+      url: '/ajax/complete/'+id,
+      success: handleTodosCompleteResponse(id)
     });
   });
 
@@ -51,6 +55,10 @@ $(document).ready(function() {
 
     $.ajax({
       // add your code here
+      method: 'PUT',
+      url: '/ajax/update/'+id,
+      data: {item: updatedItem},
+      success: handleTodosUpdateResponse(id, updatedItem)
     })
   });
 
@@ -60,7 +68,8 @@ function getAllTodos() {
   $('.list-group').html('')
   $.ajax({
     // add your code here
-
+    method: 'GET',
+    url: '/ajax/get-all'
   }).done(function(data) {
     for( let i=0; i<data.todos.length; i++){
       let itemId = data.todos[i].id
