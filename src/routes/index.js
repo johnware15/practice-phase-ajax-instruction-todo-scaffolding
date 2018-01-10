@@ -1,13 +1,15 @@
-/* Actions */
 import addOne from '../actions/addOne';
 import completeOne from '../actions/completeOne';
 import deleteOne from '../actions/deleteOne';
 import getAll from '../actions/getAll';
 import updateOne from '../actions/updateOne';
+import ajax from './ajax';
 
 const express = require('express');
 
 const api = express.Router();
+
+api.use('/ajax', ajax);
 
 /* API */
 api.get('/', (request, response, next) => {

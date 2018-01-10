@@ -1,22 +1,23 @@
 console.log("Sanity Check: JS is working!");
 
-$(document).ready(() => {
+$(document).ready(function() {
   getAllTodos();
 
-// becasue the delete-btn is added dynamically
-// the click handler needs to be written like such, bound to the document
-  $(document).on('click', '.delete-btn', () => {
-    var id = $(this).data('id');
+  // becasue the delete-btn is added dynamically
+  // the click handler needs to be written like such, bound to the document
+  $(document).on('click', '.delete-btn', function() {
+    var id = $(this).data('itemid');
     $.ajax({
-      // add code here for deleteOne action
+      method: "POST",
+      url: '/ajax/delete/'+id,
+      success: handleTodosDeleteResponse(id)
     });
   });
 
-  $(document).on('click', '.edit-btn', () => {
-    var id = $(this).data('id')
-
-    // hide the static title, show the input field
-    $('.title-'+id).hide()
+  $(document).on('click', '.edit-btn', function() {
+    var id = $(this).data("itemid")
+    // hide the static item, show the input field
+    $('.item-'+id).hide()
     $('.input-'+id).show()
 
     // hide the edit button, show the save button
@@ -25,43 +26,47 @@ $(document).ready(() => {
 
   })
 
-  $(document).on('click', '.save-btn', () => {
-    var id = $(this).data('id')
+  $(document).on('click', '.save-btn', function() {
+    var id = $(this).data("itemid")
+    var updatedItem = $('.input-'+id+' input').val()
 
-    var updatedTitle = $('.input-'+id+' input').val()
     $.ajax({
-      // add code here for updateOne action
+      method: 'PUT',
+      url: '/ajax/update/'+id,
+      data: {item: updatedItem},
+      success: handleTodosUpdateResponse(id, upda)
     })
   })
+
 });
 
 function getAllTodos() {
   $('.list-group').html('')
   $.ajax({
-    // add code here for getAll action
+    method: 'GET',
+    url: '/ajax/get-all'
   }).done(function(data) {
-    for( let i=0; i<data.todoz.length; i++){
-      $('.list-group').append('<li class="list-group-item item-'+data.todoz[i].id+'">'
-      +'<button class="btn btn-primary edit-btn edit-'+data.todoz[i].id+'" data-id="'+data.todoz[i].id+'">Edit</button>'
-      +'<button class="btn btn-success save-btn save-'+data.todoz[i].id+'" data-id="'+data.todoz[i].id+'">Save</button>'
-      +'<span class="title-'+data.todoz[i].id+'">&nbsp;'+data.todoz[i].title+'</span>'
-      +'<span class="form-inline edit-form input-'+data.todoz[i].id+'">&nbsp;<input class="form-control" value="'+data.todoz[i].title+'"/></span>'
-      +'<button class="btn btn-danger delete-btn pull-right" data-id="'+data.todoz[i].id+'">Delete</button>'
+    for( let i=0; i<data.todos.length; i++){
+      let itemId = data.todos[i].id
+      $('.list-group').append('<li class="list-group-item listitem-'+itemId+'">'
+      +'<button class="btn btn-primary edit-btn edit-'+itemId+'" data-itemid="'+itemId+'">Edit</button>'
+      +'<button class="btn btn-success save-btn save-'+itemId+'" data-itemid="'+itemId+'">Save</button>'
+      +'<span class="item-'+itemId+'">&nbsp;'+data.todos[i].item+'</span>'
+      +'<span class="form-inline edit-form input-'+itemId+'">&nbsp;<input class="form-control" value="'+data.todos[i].item+'"/></span>'
+      +'<button class="btn btn-danger delete-btn pull-right" data-itemid="'+itemId+'">Delete</button>'
       +'</li>') }
   });
 };
 
-function handleTodosDeleteResponse(data) {
-  console.log('handleTodozDeleteResponse got ', data);
-  var bookId = data._id;
-  var $row = $('.item-' + bookId);
+function handleTodosDeleteResponse(itemId) {
+  var $row = $('.listitem-' + itemId);
   $row.remove();
 }
 
-function handleTodosUpdateResponse(data) {
-  var id = data._id;
-  $('.title-'+id).html('&nbsp;'+data.title)
-  $('.title-'+id).show()
+function handleTodosUpdateResponse(id, updatedItem) {
+  $('.listitem-'+id).html('&nbsp;'+updatedItem)
+
+  $('.item-'+id).show()
   $('.input-'+id).hide()
   $('.edit-'+id).show()
   $('.save-'+id).hide()
