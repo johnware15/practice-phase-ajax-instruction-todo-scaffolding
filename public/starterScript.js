@@ -8,8 +8,10 @@ $(document).ready(function() {
   $(document).on('click', '.delete-btn', function() {
     var id = $(this).data('itemid');
     $.ajax({
-      // add code here
-
+      method: "DELETE",
+      url: '/ajax/delete/:id',
+      data: data,
+      success: handleTodosDeleteResponse()
     });
   });
 
