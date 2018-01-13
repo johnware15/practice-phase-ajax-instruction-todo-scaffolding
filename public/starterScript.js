@@ -30,8 +30,10 @@ $(document).ready(function() {
   $(document).on('click', '.complete-btn', function() {
     var id = $(this).data('itemid');
     $.ajax({
-      // add code here
-
+      method: "DELETE",
+      url: '/ajax/delete/:id',
+      data: data,
+      success: handleTodosCompleteResponse()
     });
   });
 
@@ -52,7 +54,10 @@ $(document).ready(function() {
     var updatedItem = $('.input-'+id+' input').val()
 
     $.ajax({
-      // add your code here
+      method: "PUT",
+      url: '/ajax/update/:id',
+      data: data,
+      success: handleTodosUpdateResponse()
     })
   });
 
