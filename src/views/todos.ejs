@@ -5,6 +5,8 @@
     <table class="table">
       <tr>
         <th>Item</th>
+        <th style="padding-left: 7px; padding-right: 7px;"> Update </th>
+        <th style="padding-left: 7px; padding-right: 7px;"> Delete? </th>
         <th style="padding-left: 7px; padding-right: 7px;"> Complete? </th>
       </tr>
       <% todos.forEach( todo => { %>
@@ -12,6 +14,16 @@
         <div>
           <td>
             <p class="flex-center item"><%= todo.item %></p>
+          </td>
+        </div>
+        <div>
+          <td>
+            <a class="flex-center update" href='/update/<%=todo.id%>'>update</a>
+          </td>
+        </div>
+        <div>
+          <td>
+            <a class="flex-center delete" href='/delete/<%=todo.id%>'>X</a>
           </td>
         </div>
         <div>

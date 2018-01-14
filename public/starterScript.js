@@ -9,7 +9,7 @@ $(document).ready(function() {
     var id = $(this).data('itemid');
     $.ajax({
       method: "DELETE",
-      url: '/ajax/delete/:id',
+      url: '/delete/',
       data: data,
       success: handleTodosDeleteResponse()
     });
@@ -21,7 +21,7 @@ $(document).ready(function() {
     $("#new-todo-form").trigger("reset");
     $.ajax({
       method: "POST",
-      url: '/ajax/add/',
+      url: '/add/',
       data: data,
       success: handleTodoAddResponse()
     })
@@ -31,7 +31,7 @@ $(document).ready(function() {
     var id = $(this).data('itemid');
     $.ajax({
       method: "DELETE",
-      url: '/ajax/delete/:id',
+      url: '/complete/',
       data: data,
       success: handleTodosCompleteResponse()
     });
@@ -55,7 +55,7 @@ $(document).ready(function() {
 
     $.ajax({
       method: "PUT",
-      url: '/ajax/update/:id',
+      url: '/update/',
       data: data,
       success: handleTodosUpdateResponse()
     })
@@ -66,7 +66,8 @@ $(document).ready(function() {
 function getAllTodos() {
   $('.list-group').html('')
   $.ajax({
-    // add your code here
+    method: "GET",
+    url: '/getAll'
 
   }).done(function(data) {
     for( let i=0; i<data.todos.length; i++){
